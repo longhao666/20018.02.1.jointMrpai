@@ -7,15 +7,17 @@ SOURCES += \
     $$PWD/src/logger.c \
     $$PWD/src/master.c \
     $$PWD/src/module.c \
+    $$PWD/src/gripper.c \
 
 
 HEADERS += \
-    $$PWD/include/can_driver.h \
-    $$PWD/include/joint.h \
-    $$PWD/include/logger.h \
-    $$PWD/include/master.h \
-    $$PWD/include/module.h \
+#    $$PWD/include/can_driver.h \
+#    $$PWD/include/joint.h \
+#    $$PWD/include/logger.h \
+#    $$PWD/include/master.h \
+#    $$PWD/include/module.h \
     $$PWD/include/mrapi.h \
+#    $$PWD/include/gripper.c \
 
 SOURCES += \
     $$PWD/pcan_basic/pcan_basic.c \
@@ -23,7 +25,7 @@ SOURCES += \
     $$PWD/pcan_basic/thread_win.c \
 
 HEADERS += \
-    $$PWD/pcan_basic/pcan_basic.h \
+#    $$PWD/pcan_basic/pcan_basic.h \
 
 INCLUDEPATH += $$PWD/include
 INCLUDEPATH += $$PWD/pcan_basic

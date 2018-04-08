@@ -127,7 +127,8 @@ void Bottom::updatecmbID()
     vectID.clear();
     JOINT_HANDLE tempj = NULL;
     uint16_t ID = 0;
-    for(int i=1;i<30;i++) {
+    for(int i=1;i<14;i++) {
+        qDebug() << "jin le" << i;
         tempj = jointUp(i, 0);
         if(tempj) {
             int re = jointGet(SYS_ID, 2, (Joint *)tempj, (void *)&ID, 100, NULL);
@@ -274,9 +275,9 @@ void Bottom::on_cmbID_currentIndexChanged(int index)
     case MODEL_TYPE_M20V2:
         str = "M20E";
         break;
-    case MODEL_TYPE_LIFT:
-        str = "LIFT";
-        break;
+//    case MODEL_TYPE_LIFT:
+//        str = "LIFT";
+//        break;
     default :
         break;
     }

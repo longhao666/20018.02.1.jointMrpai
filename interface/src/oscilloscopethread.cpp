@@ -181,37 +181,37 @@ void OscilloScopeThread::getData()
                     int32_t data32[2] = {0};
                     switch (paintArea->showItems[i].Item) {
                     case SCP_TAGCUR_L:
-                        jointPollScope(m_joint, NULL, NULL, data32);
+                        jointPollScope(m_joint, NULL, NULL, (float *)data32);
                         data_L = (uint16_t)(data32[0] & 0xffff);
                         data_H = (uint16_t)((data32[0] >> 16) & 0xffff);
 //                        qDebug("SCP_TAGCUR_L");
                         break;
                     case SCP_MEACUR_L:
-                        jointPollScope(m_joint, NULL, NULL, data32);
+                        jointPollScope(m_joint, NULL, NULL, (float *)data32);
                         data_L = (uint16_t)(data32[1] & 0xffff);
                         data_H = (uint16_t)((data32[1] >> 16) & 0xffff);
 //                        qDebug("SCP_MEACUR_L");
                         break;
                     case SCP_TAGSPD_L:
-                        jointPollScope(m_joint, NULL, data32, NULL);
+                        jointPollScope(m_joint, NULL, (float *)data32, NULL);
                         data_L = (uint16_t)(data32[0] & 0xffff);
                         data_H = (uint16_t)((data32[0] >> 16) & 0xffff);
 //                        qDebug("SCP_TAGSPD_L");
                         break;
                     case SCP_MEASPD_L:
-                        jointPollScope(m_joint, NULL, data32, NULL);
+                        jointPollScope(m_joint, NULL, (float *)data32, NULL);
                         data_L = (uint16_t)(data32[1] & 0xffff);
                         data_H = (uint16_t)((data32[1] >> 16) & 0xffff);
 //                        qDebug("SCP_MEASPD_L");
                         break;
                     case SCP_TAGPOS_L:
-                        jointPollScope(m_joint, data32, NULL, NULL);
+                        jointPollScope(m_joint, (float *)data32, NULL, NULL);
                         data_L = (uint16_t)(data32[0] & 0xffff);
                         data_H = (uint16_t)((data32[0] >> 16) & 0xffff);
 //                        qDebug("SCP_TAGPOS_L");
                         break;
                     case SCP_MEAPOS_L:
-                        jointPollScope(m_joint, data32, NULL, NULL);
+                        jointPollScope(m_joint, (float *)data32, NULL, NULL);
                         data_L = (uint16_t)(data32[1] & 0xffff);
                         data_H = (uint16_t)((data32[1] >> 16) & 0xffff);
 //                        qDebug("SCP_MEAPOS_L");

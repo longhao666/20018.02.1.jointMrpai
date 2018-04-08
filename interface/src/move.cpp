@@ -14,6 +14,12 @@
 #define MOTION_CONTROL_INTEVAL 30   // 运动控制周期（ms）
 
 
+#define MODE_OPEN       0
+#define MODE_CURRENT    1
+#define MODE_SPEED      2
+#define MODE_POSITION   3
+
+
 
 Move::Move(QWidget *parent) :
     QWidget(parent),
@@ -227,7 +233,7 @@ void Move::on_cmbWorkMode_currentIndexChanged(int index)
         return ;
     }
     // 更改工作模式
-    jointSetMode(m_joint, index, 50, NULL);
+    jointSetMode(m_joint, (jointMode_t)index, 50, NULL);
     jointGet(TAG_WORK_MODE, 4, (Joint *)m_joint, (void *)&tag_work_mode, 50, NULL);
     // 工作模式更新bias
     workModeUpdatetxtBias();
