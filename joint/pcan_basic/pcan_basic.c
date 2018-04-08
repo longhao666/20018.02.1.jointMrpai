@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #define CAN_INIT_TYPE_ST_RTR PCAN_MESSAGE_STANDARD | PCAN_MESSAGE_RTR 
 
 /***************************************************************************/
-int TranslateBaudeRate(char* optarg) {
+int TranslateBaudeRate(const char* optarg) {
 	if (!strcmp(optarg, "1M")) return PCAN_BAUD_1M;
 	if (!strcmp(optarg, "800K")) return PCAN_BAUD_800K;
 	if (!strcmp(optarg, "500K")) return PCAN_BAUD_500K;
@@ -50,23 +50,23 @@ int TranslateBaudeRate(char* optarg) {
 	return 0x0000;
 }
 
-CAN_HANDLE TranslateCANHandle(char* optarg) {
-    if (!strcmp(optarg, "pcanusb1")) return PCAN_USBBUS1;
-    if (!strcmp(optarg, "pcanusb2")) return PCAN_USBBUS2;
-    if (!strcmp(optarg, "pcanusb3")) return PCAN_USBBUS3;
-    if (!strcmp(optarg, "pcanusb4")) return PCAN_USBBUS4;
-    if (!strcmp(optarg, "pcanusb5")) return PCAN_USBBUS5;
-    if (!strcmp(optarg, "pcanusb6")) return PCAN_USBBUS6;
-    if (!strcmp(optarg, "pcanusb7")) return PCAN_USBBUS7;
-    if (!strcmp(optarg, "pcanusb8")) return PCAN_USBBUS8;
-    if (!strcmp(optarg, "pcanusb9")) return PCAN_USBBUS9;
-    if (!strcmp(optarg, "pcanusb10")) return PCAN_USBBUS10;
-    if (!strcmp(optarg, "pcanusb11")) return PCAN_USBBUS11;
-    if (!strcmp(optarg, "pcanusb12")) return PCAN_USBBUS12;
-    if (!strcmp(optarg, "pcanusb13")) return PCAN_USBBUS13;
-    if (!strcmp(optarg, "pcanusb14")) return PCAN_USBBUS14;
-    if (!strcmp(optarg, "pcanusb15")) return PCAN_USBBUS15;
-    if (!strcmp(optarg, "pcanusb16")) return PCAN_USBBUS16;
+CAN_HANDLE TranslateCANHandle(const char* optarg) {
+	if (!strcmp(optarg, "pcanusb1")) return PCAN_USBBUS1;
+	if (!strcmp(optarg, "pcanusb2")) return PCAN_USBBUS2;
+	if (!strcmp(optarg, "pcanusb3")) return PCAN_USBBUS3;
+	if (!strcmp(optarg, "pcanusb4")) return PCAN_USBBUS4;
+	if (!strcmp(optarg, "pcanusb5")) return PCAN_USBBUS5;
+	if (!strcmp(optarg, "pcanusb6")) return PCAN_USBBUS6;
+	if (!strcmp(optarg, "pcanusb7")) return PCAN_USBBUS7;
+	if (!strcmp(optarg, "pcanusb8")) return PCAN_USBBUS8;
+	if (!strcmp(optarg, "pcanusb9")) return PCAN_USBBUS9;
+	if (!strcmp(optarg, "pcanusb10")) return PCAN_USBBUS10;
+	if (!strcmp(optarg, "pcanusb11")) return PCAN_USBBUS11;
+	if (!strcmp(optarg, "pcanusb12")) return PCAN_USBBUS12;
+	if (!strcmp(optarg, "pcanusb13")) return PCAN_USBBUS13;
+	if (!strcmp(optarg, "pcanusb14")) return PCAN_USBBUS14;
+	if (!strcmp(optarg, "pcanusb15")) return PCAN_USBBUS15;
+	if (!strcmp(optarg, "pcanusb16")) return PCAN_USBBUS16;
 	if (!strcmp(optarg, "pcanpci1")) return PCAN_PCIBUS1;
 	if (!strcmp(optarg, "pcanpci2")) return PCAN_PCIBUS2;
 	if (!strcmp(optarg, "pcanpci3")) return PCAN_PCIBUS3;
@@ -83,7 +83,7 @@ uint8_t canChangeBaudRate_driver(CAN_HANDLE fd, char* baud)
 }
 
 /***************************************************************************/
-CAN_HANDLE canOpen_driver(char* busname, char* baud)
+CAN_HANDLE canOpen_driver(const char* busname, const char* baud)
 {
 	CAN_HANDLE handle = 0;
 	int baudrate;
